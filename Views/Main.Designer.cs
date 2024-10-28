@@ -41,22 +41,22 @@
             dataGridView1 = new DataGridView();
             tp_appointments = new TabPage();
             monthCalendar1 = new MonthCalendar();
-            button1 = new Button();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            buttonSubmit = new Button();
+            textBoxAddress = new TextBox();
+            textBoxContact = new TextBox();
+            textBoxName = new TextBox();
             tp_records = new TabPage();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            buttonFilterPatient = new Button();
+            buttonRemovePatient = new Button();
+            buttonEditPatient = new Button();
+            buttonAddPatient = new Button();
             dataGridViewPatient = new DataGridView();
             tp_doctors = new TabPage();
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
-            dataGridView3 = new DataGridView();
+            dataGridViewDoctor = new DataGridView();
             toolStrip1 = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
             toolStripButton1 = new ToolStripButton();
@@ -73,7 +73,7 @@
             tp_records.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPatient).BeginInit();
             tp_doctors.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDoctor).BeginInit();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -189,20 +189,20 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 175);
+            dataGridView1.Location = new Point(12, 175);
             dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(753, 369);
+            dataGridView1.Size = new Size(736, 360);
             dataGridView1.TabIndex = 0;
             // 
             // tp_appointments
             // 
             tp_appointments.Controls.Add(monthCalendar1);
-            tp_appointments.Controls.Add(button1);
-            tp_appointments.Controls.Add(textBox3);
-            tp_appointments.Controls.Add(textBox2);
-            tp_appointments.Controls.Add(textBox1);
+            tp_appointments.Controls.Add(buttonSubmit);
+            tp_appointments.Controls.Add(textBoxAddress);
+            tp_appointments.Controls.Add(textBoxContact);
+            tp_appointments.Controls.Add(textBoxName);
             tp_appointments.Location = new Point(154, 4);
             tp_appointments.Margin = new Padding(3, 4, 3, 4);
             tp_appointments.Name = "tp_appointments";
@@ -219,52 +219,52 @@
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 5;
             // 
-            // button1
+            // buttonSubmit
             // 
-            button1.Location = new Point(75, 367);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(281, 64);
-            button1.TabIndex = 3;
-            button1.Text = "Submit";
-            button1.UseVisualStyleBackColor = true;
+            buttonSubmit.Location = new Point(75, 367);
+            buttonSubmit.Margin = new Padding(3, 4, 3, 4);
+            buttonSubmit.Name = "buttonSubmit";
+            buttonSubmit.Size = new Size(281, 64);
+            buttonSubmit.TabIndex = 3;
+            buttonSubmit.Text = "Submit";
+            buttonSubmit.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // textBoxAddress
             // 
-            textBox3.Font = new Font("Segoe UI", 12F);
-            textBox3.Location = new Point(75, 273);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Address";
-            textBox3.Size = new Size(281, 34);
-            textBox3.TabIndex = 2;
+            textBoxAddress.Font = new Font("Segoe UI", 12F);
+            textBoxAddress.Location = new Point(75, 273);
+            textBoxAddress.Margin = new Padding(3, 4, 3, 4);
+            textBoxAddress.Name = "textBoxAddress";
+            textBoxAddress.PlaceholderText = "Address";
+            textBoxAddress.Size = new Size(281, 34);
+            textBoxAddress.TabIndex = 2;
             // 
-            // textBox2
+            // textBoxContact
             // 
-            textBox2.Font = new Font("Segoe UI", 12F);
-            textBox2.Location = new Point(75, 196);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Contact number";
-            textBox2.Size = new Size(281, 34);
-            textBox2.TabIndex = 1;
+            textBoxContact.Font = new Font("Segoe UI", 12F);
+            textBoxContact.Location = new Point(75, 196);
+            textBoxContact.Margin = new Padding(3, 4, 3, 4);
+            textBoxContact.Name = "textBoxContact";
+            textBoxContact.PlaceholderText = "Contact number";
+            textBoxContact.Size = new Size(281, 34);
+            textBoxContact.TabIndex = 1;
             // 
-            // textBox1
+            // textBoxName
             // 
-            textBox1.Font = new Font("Segoe UI", 12F);
-            textBox1.Location = new Point(75, 124);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Name";
-            textBox1.Size = new Size(281, 34);
-            textBox1.TabIndex = 0;
+            textBoxName.Font = new Font("Segoe UI", 12F);
+            textBoxName.Location = new Point(75, 124);
+            textBoxName.Margin = new Padding(3, 4, 3, 4);
+            textBoxName.Name = "textBoxName";
+            textBoxName.PlaceholderText = "Name";
+            textBoxName.Size = new Size(281, 34);
+            textBoxName.TabIndex = 0;
             // 
             // tp_records
             // 
-            tp_records.Controls.Add(button5);
-            tp_records.Controls.Add(button4);
-            tp_records.Controls.Add(button3);
-            tp_records.Controls.Add(button2);
+            tp_records.Controls.Add(buttonFilterPatient);
+            tp_records.Controls.Add(buttonRemovePatient);
+            tp_records.Controls.Add(buttonEditPatient);
+            tp_records.Controls.Add(buttonAddPatient);
             tp_records.Controls.Add(dataGridViewPatient);
             tp_records.Location = new Point(154, 4);
             tp_records.Margin = new Padding(3, 4, 3, 4);
@@ -275,58 +275,59 @@
             tp_records.Text = "Patient Records";
             tp_records.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttonFilterPatient
             // 
-            button5.Location = new Point(158, 4);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(46, 53);
-            button5.TabIndex = 4;
-            button5.Text = "Filter";
-            button5.UseVisualStyleBackColor = true;
+            buttonFilterPatient.Location = new Point(158, 4);
+            buttonFilterPatient.Margin = new Padding(3, 4, 3, 4);
+            buttonFilterPatient.Name = "buttonFilterPatient";
+            buttonFilterPatient.Size = new Size(46, 53);
+            buttonFilterPatient.TabIndex = 4;
+            buttonFilterPatient.Text = "Filter";
+            buttonFilterPatient.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttonRemovePatient
             // 
-            button4.Location = new Point(105, 4);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(46, 53);
-            button4.TabIndex = 3;
-            button4.Text = "Remove";
-            button4.UseVisualStyleBackColor = true;
+            buttonRemovePatient.Location = new Point(105, 4);
+            buttonRemovePatient.Margin = new Padding(3, 4, 3, 4);
+            buttonRemovePatient.Name = "buttonRemovePatient";
+            buttonRemovePatient.Size = new Size(46, 53);
+            buttonRemovePatient.TabIndex = 3;
+            buttonRemovePatient.Text = "Remove";
+            buttonRemovePatient.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttonEditPatient
             // 
-            button3.BackgroundImageLayout = ImageLayout.Zoom;
-            button3.Location = new Point(53, 4);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(46, 53);
-            button3.TabIndex = 2;
-            button3.Text = "Edit";
-            button3.UseVisualStyleBackColor = true;
+            buttonEditPatient.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEditPatient.Location = new Point(53, 4);
+            buttonEditPatient.Margin = new Padding(3, 4, 3, 4);
+            buttonEditPatient.Name = "buttonEditPatient";
+            buttonEditPatient.Size = new Size(46, 53);
+            buttonEditPatient.TabIndex = 2;
+            buttonEditPatient.Text = "Edit";
+            buttonEditPatient.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonAddPatient
             // 
-            button2.BackgroundImageLayout = ImageLayout.Zoom;
-            button2.Location = new Point(0, 4);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(46, 53);
-            button2.TabIndex = 1;
-            button2.Text = "Add";
-            button2.UseVisualStyleBackColor = true;
+            buttonAddPatient.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAddPatient.Location = new Point(0, 4);
+            buttonAddPatient.Margin = new Padding(3, 4, 3, 4);
+            buttonAddPatient.Name = "buttonAddPatient";
+            buttonAddPatient.Size = new Size(46, 53);
+            buttonAddPatient.TabIndex = 1;
+            buttonAddPatient.Text = "Add";
+            buttonAddPatient.UseVisualStyleBackColor = true;
             // 
             // dataGridViewPatient
             // 
             dataGridViewPatient.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewPatient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewPatient.BackgroundColor = SystemColors.Control;
             dataGridViewPatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewPatient.Location = new Point(0, 63);
+            dataGridViewPatient.Location = new Point(6, 65);
             dataGridViewPatient.Margin = new Padding(3, 4, 3, 4);
             dataGridViewPatient.Name = "dataGridViewPatient";
             dataGridViewPatient.RowHeadersWidth = 51;
-            dataGridViewPatient.Size = new Size(734, 479);
+            dataGridViewPatient.Size = new Size(729, 470);
             dataGridViewPatient.TabIndex = 0;
             // 
             // tp_doctors
@@ -335,7 +336,7 @@
             tp_doctors.Controls.Add(button7);
             tp_doctors.Controls.Add(button8);
             tp_doctors.Controls.Add(button9);
-            tp_doctors.Controls.Add(dataGridView3);
+            tp_doctors.Controls.Add(dataGridViewDoctor);
             tp_doctors.Location = new Point(154, 4);
             tp_doctors.Margin = new Padding(3, 4, 3, 4);
             tp_doctors.Name = "tp_doctors";
@@ -387,17 +388,17 @@
             button9.Text = "Add";
             button9.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // dataGridViewDoctor
             // 
-            dataGridView3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView3.BackgroundColor = SystemColors.Control;
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(0, 63);
-            dataGridView3.Margin = new Padding(3, 4, 3, 4);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.Size = new Size(734, 479);
-            dataGridView3.TabIndex = 5;
+            dataGridViewDoctor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewDoctor.BackgroundColor = SystemColors.Control;
+            dataGridViewDoctor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDoctor.Location = new Point(22, 65);
+            dataGridViewDoctor.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewDoctor.Name = "dataGridViewDoctor";
+            dataGridViewDoctor.RowHeadersWidth = 51;
+            dataGridViewDoctor.Size = new Size(711, 458);
+            dataGridViewDoctor.TabIndex = 5;
             // 
             // toolStrip1
             // 
@@ -489,7 +490,7 @@
             tp_records.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewPatient).EndInit();
             tp_doctors.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDoctor).EndInit();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -505,20 +506,20 @@
         private DataGridView dataGridView1;
         private Panel panel1;
         private Label label1;
-        private Button button1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private Button buttonSubmit;
+        private TextBox textBoxAddress;
+        private TextBox textBoxContact;
+        private TextBox textBoxName;
         private MonthCalendar monthCalendar1;
         private Panel panel2;
         private Label label2;
         private Label label4;
         private Label label3;
         private Label label5;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button buttonFilterPatient;
+        private Button buttonRemovePatient;
+        private Button buttonEditPatient;
+        private Button buttonAddPatient;
         private DataGridView dataGridViewPatient;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
@@ -532,6 +533,6 @@
         private Button button7;
         private Button button8;
         private Button button9;
-        private DataGridView dataGridView3;
+        private DataGridView dataGridViewDoctor;
     }
 }

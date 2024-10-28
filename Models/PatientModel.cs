@@ -16,7 +16,7 @@ namespace CampusCare.Models
         public string student_or_staff { get; set; }
         public int id_number { get; set; }
         public string grade_or_department { get; set; }
-        public int contact_number { get; set; }
+        public long contact_number { get; set; }
         public DateTime date_registered { get; set; }
 
     }

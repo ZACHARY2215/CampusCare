@@ -14,11 +14,15 @@ namespace CampusCare.Views
     public partial class Main : Form
     {
         private PatientMV patientMV;
+        private DoctorMV doctorMV;
+
         public Main()
         {
             InitializeComponent();
             patientMV = new PatientMV();
+            doctorMV = new DoctorMV();
             LoadPatientData();
+            LoadDoctorData();
         }
 
         private void LoadPatientData()
@@ -27,9 +31,15 @@ namespace CampusCare.Views
             dataGridViewPatient.DataSource = patientMV.Patients;
         }
 
+        private void LoadDoctorData()
+        {
+            dataGridViewDoctor.DataSource = null;
+            dataGridViewDoctor.DataSource = doctorMV.Doctors;
+        }
+
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            // https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-display-side-aligned-tabs-with-tabcontrol?view=netframeworkdesktop-4.8&redirectedfrom=MSDN
+            // Custom drawing for tabControl
             Graphics g = e.Graphics;
             Brush _textBrush;
 
@@ -41,7 +51,6 @@ namespace CampusCare.Views
 
             if (e.State == DrawItemState.Selected)
             {
-
                 // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(e.ForeColor);
                 g.FillRectangle(Brushes.Gray, e.Bounds);
@@ -50,11 +59,9 @@ namespace CampusCare.Views
             {
                 _textBrush = new SolidBrush(e.ForeColor);
                 g.FillRectangle(Brushes.Transparent, e.Bounds);
-                //e.DrawBackground();
             }
 
-            // Use our own font.
-            //Font _tabFont = new Font("Segoe UI", 15.0f, FontStyle.Bold, GraphicsUnit.Pixel);
+            // Use the specified font.
             Font _tabFont = e.Font;
 
             // Draw string. Center the text.

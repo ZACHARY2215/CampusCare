@@ -6,17 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using System.Diagnostics;
 
 namespace CampusCare.ModelViews
 {
     internal class PatientMV
     {
-        private string connectionString;
+        public string connectionString;
         public List<PatientModel> Patients { get; set; } = new List<PatientModel>();
 
         public PatientMV() 
         {
-            connectionString = ConfigurationManager.ConnectionStrings["DefaultConection"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LoadPatients();
         }
 
@@ -43,7 +44,7 @@ namespace CampusCare.ModelViews
                         student_or_staff = reader.GetString(5),
                         id_number = reader.GetInt32(6),
                         grade_or_department = reader.GetString(7),
-                        contact_number = reader.GetInt32(8),    
+                        contact_number = reader.GetInt64(8),    
                         date_registered = reader.GetDateTime(9)
                     };
                     Patients.Add(student);
