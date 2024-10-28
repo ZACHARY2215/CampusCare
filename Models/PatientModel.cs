@@ -20,4 +20,5 @@ namespace CampusCare.Models
         public DateTime date_registered { get; set; }
 
     }
+
 }
