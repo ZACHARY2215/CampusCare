@@ -15,14 +15,17 @@ namespace CampusCare.Views
     {
         private PatientMV patientMV;
         private DoctorMV doctorMV;
+        private RecentPatientsMV recentPatientsMV;
 
         public Main()
         {
             InitializeComponent();
             patientMV = new PatientMV();
             doctorMV = new DoctorMV();
+            recentPatientsMV = new RecentPatientsMV();
             LoadPatientData();
             LoadDoctorData();
+            LoadRecentPatientData();
         }
 
         private void LoadPatientData()
@@ -37,21 +40,21 @@ namespace CampusCare.Views
             dataGridViewDoctor.DataSource = doctorMV.Doctors;
         }
 
+        private void LoadRecentPatientData()
+        {
+            dataGridViewRecentPatients.DataSource = null;
+            dataGridViewRecentPatients.DataSource = recentPatientsMV.RecentPatients;
+        }
+
         private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
-            // Custom drawing for tabControl
             Graphics g = e.Graphics;
             Brush _textBrush;
-
-            // Get the item from the collection.
             TabPage _tabPage = tabControl1.TabPages[e.Index];
-
-            // Get the real bounds for the tab rectangle.
             Rectangle _tabBounds = tabControl1.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {
-                // Draw a different background color, and don't paint a focus rectangle.
                 _textBrush = new SolidBrush(e.ForeColor);
                 g.FillRectangle(Brushes.Gray, e.Bounds);
             }
@@ -61,10 +64,7 @@ namespace CampusCare.Views
                 g.FillRectangle(Brushes.Transparent, e.Bounds);
             }
 
-            // Use the specified font.
             Font _tabFont = e.Font;
-
-            // Draw string. Center the text.
             StringFormat _stringFlags = new StringFormat();
             _stringFlags.Alignment = StringAlignment.Near;
             _stringFlags.LineAlignment = StringAlignment.Center;

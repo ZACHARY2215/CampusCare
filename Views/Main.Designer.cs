@@ -38,7 +38,7 @@
             panel1 = new Panel();
             label3 = new Label();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridViewRecentPatients = new DataGridView();
             tp_appointments = new TabPage();
             monthCalendar1 = new MonthCalendar();
             buttonSubmit = new Button();
@@ -68,7 +68,7 @@
             tp_dashboard.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRecentPatients).BeginInit();
             tp_appointments.SuspendLayout();
             tp_records.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPatient).BeginInit();
@@ -102,7 +102,7 @@
             tp_dashboard.Controls.Add(label5);
             tp_dashboard.Controls.Add(panel2);
             tp_dashboard.Controls.Add(panel1);
-            tp_dashboard.Controls.Add(dataGridView1);
+            tp_dashboard.Controls.Add(dataGridViewRecentPatients);
             tp_dashboard.Location = new Point(154, 4);
             tp_dashboard.Margin = new Padding(3, 4, 3, 4);
             tp_dashboard.Name = "tp_dashboard";
@@ -184,17 +184,17 @@
             label1.TabIndex = 0;
             label1.Text = "Remaining patients";
             // 
-            // dataGridView1
+            // dataGridViewRecentPatients
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = SystemColors.Control;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 175);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(736, 360);
-            dataGridView1.TabIndex = 0;
+            dataGridViewRecentPatients.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewRecentPatients.BackgroundColor = SystemColors.Control;
+            dataGridViewRecentPatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewRecentPatients.Location = new Point(12, 175);
+            dataGridViewRecentPatients.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewRecentPatients.Name = "dataGridViewRecentPatients";
+            dataGridViewRecentPatients.RowHeadersWidth = 51;
+            dataGridViewRecentPatients.Size = new Size(736, 360);
+            dataGridViewRecentPatients.TabIndex = 0;
             // 
             // tp_appointments
             // 
@@ -484,7 +484,7 @@
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewRecentPatients).EndInit();
             tp_appointments.ResumeLayout(false);
             tp_appointments.PerformLayout();
             tp_records.ResumeLayout(false);
@@ -503,7 +503,7 @@
         private TabPage tp_dashboard;
         private TabPage tp_appointments;
         private TabPage tp_records;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewRecentPatients;
         private Panel panel1;
         private Label label1;
         private Button buttonSubmit;
