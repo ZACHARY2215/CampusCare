@@ -39,7 +39,7 @@
             button9 = new Button();
             dataGridViewDoctor = new DataGridView();
             tp_records = new TabPage();
-            button1 = new Button();
+            buttonAppointment = new Button();
             buttonFilterPatient = new Button();
             buttonRemovePatient = new Button();
             buttonEditPatient = new Button();
@@ -55,6 +55,7 @@
             label1 = new Label();
             dataGridViewRecentPatients = new DataGridView();
             tabControl1 = new TabControl();
+            buttonViewPatient = new Button();
             toolStrip1.SuspendLayout();
             tp_doctors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctor).BeginInit();
@@ -164,7 +165,8 @@
             // 
             // tp_records
             // 
-            tp_records.Controls.Add(button1);
+            tp_records.Controls.Add(buttonViewPatient);
+            tp_records.Controls.Add(buttonAppointment);
             tp_records.Controls.Add(buttonFilterPatient);
             tp_records.Controls.Add(buttonRemovePatient);
             tp_records.Controls.Add(buttonEditPatient);
@@ -178,19 +180,19 @@
             tp_records.Text = "Patient Records";
             tp_records.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // buttonAppointment
             // 
-            button1.Location = new Point(390, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 40);
-            button1.TabIndex = 5;
-            button1.Text = "Appointment";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonAppointment.Location = new Point(101, 3);
+            buttonAppointment.Name = "buttonAppointment";
+            buttonAppointment.Size = new Size(90, 40);
+            buttonAppointment.TabIndex = 5;
+            buttonAppointment.Text = "Appointment";
+            buttonAppointment.UseVisualStyleBackColor = true;
+            buttonAppointment.Click += buttonAppointment_Click;
             // 
             // buttonFilterPatient
             // 
-            buttonFilterPatient.Location = new Point(294, 3);
+            buttonFilterPatient.Location = new Point(485, 3);
             buttonFilterPatient.Name = "buttonFilterPatient";
             buttonFilterPatient.Size = new Size(90, 40);
             buttonFilterPatient.TabIndex = 4;
@@ -199,7 +201,7 @@
             // 
             // buttonRemovePatient
             // 
-            buttonRemovePatient.Location = new Point(198, 3);
+            buttonRemovePatient.Location = new Point(389, 3);
             buttonRemovePatient.Name = "buttonRemovePatient";
             buttonRemovePatient.Size = new Size(90, 40);
             buttonRemovePatient.TabIndex = 3;
@@ -209,7 +211,7 @@
             // buttonEditPatient
             // 
             buttonEditPatient.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonEditPatient.Location = new Point(102, 3);
+            buttonEditPatient.Location = new Point(293, 3);
             buttonEditPatient.Name = "buttonEditPatient";
             buttonEditPatient.Size = new Size(90, 40);
             buttonEditPatient.TabIndex = 2;
@@ -220,7 +222,7 @@
             // buttonAddPatient
             // 
             buttonAddPatient.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonAddPatient.Location = new Point(6, 3);
+            buttonAddPatient.Location = new Point(197, 3);
             buttonAddPatient.Name = "buttonAddPatient";
             buttonAddPatient.Size = new Size(90, 40);
             buttonAddPatient.TabIndex = 1;
@@ -278,11 +280,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(26, 32);
+            label2.Location = new Point(113, 32);
             label2.Name = "label2";
-            label2.Size = new Size(140, 32);
+            label2.Size = new Size(53, 32);
             label2.TabIndex = 1;
-            label2.Text = "AVAILABLE";
+            label2.Text = "2/2";
             // 
             // label4
             // 
@@ -353,6 +355,16 @@
             tabControl1.TabIndex = 2;
             tabControl1.DrawItem += tabControl1_DrawItem;
             // 
+            // buttonViewPatient
+            // 
+            buttonViewPatient.Location = new Point(5, 3);
+            buttonViewPatient.Name = "buttonViewPatient";
+            buttonViewPatient.Size = new Size(90, 40);
+            buttonViewPatient.TabIndex = 6;
+            buttonViewPatient.Text = "View";
+            buttonViewPatient.UseVisualStyleBackColor = true;
+            buttonViewPatient.Click += buttonViewPatient_Click;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -391,7 +403,7 @@
         private Button button9;
         private DataGridView dataGridViewDoctor;
         private TabPage tp_records;
-        private Button button1;
+        private Button buttonAppointment;
         private Button buttonFilterPatient;
         private Button buttonRemovePatient;
         private Button buttonEditPatient;
@@ -407,5 +419,6 @@
         private Label label1;
         private DataGridView dataGridViewRecentPatients;
         private TabControl tabControl1;
+        private Button buttonViewPatient;
     }
 }
