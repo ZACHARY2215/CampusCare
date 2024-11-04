@@ -70,5 +70,38 @@ namespace CampusCare.Views
             _stringFlags.LineAlignment = StringAlignment.Center;
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (Appointment ap = new())
+            {
+                if (ap.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void buttonAddPatient_Click(object sender, EventArgs e)
+        {
+            using (AddPatient ap = new())
+            {
+                if (ap.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
+        private void buttonEditPatient_Click(object sender, EventArgs e)
+        {
+            using (EditPatient ep = new())
+            {
+                if (ep.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
     }
 }
