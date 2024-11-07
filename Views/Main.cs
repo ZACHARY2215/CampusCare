@@ -89,10 +89,12 @@ namespace CampusCare.Views
             {
                 if (ap.ShowDialog() == DialogResult.OK)
                 {
-
+                    patientMV.LoadPatients(); 
+                    LoadPatientData();        
                 }
             }
         }
+
 
         private void buttonEditPatient_Click(object sender, EventArgs e)
         {
