@@ -34,10 +34,10 @@
             toolStripLabel1 = new ToolStripLabel();
             toolStripButton1 = new ToolStripButton();
             tp_doctors = new TabPage();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
+            doctorRemoveButton = new Button();
+            doctorEditButton = new Button();
+            doctorAddButton = new Button();
+            dataGridViewDoctor = new DataGridView();
             dataGridViewDoctor = new DataGridView();
             tp_records = new TabPage();
             buttonRemovePatient = new Button();
@@ -104,9 +104,9 @@
             // tp_doctors
             // 
             tp_doctors.Controls.Add(button6);
-            tp_doctors.Controls.Add(button7);
-            tp_doctors.Controls.Add(button8);
-            tp_doctors.Controls.Add(button9);
+            tp_doctors.Controls.Add(doctorRemoveButton);
+            tp_doctors.Controls.Add(doctorEditButton);
+            tp_doctors.Controls.Add(doctorAddButton);
             tp_doctors.Controls.Add(dataGridViewDoctor);
             tp_doctors.Location = new Point(154, 4);
             tp_doctors.Margin = new Padding(3, 4, 3, 4);
@@ -119,45 +119,47 @@
             // 
             // button6
             // 
-            button6.Location = new Point(162, 4);
+            button6 = new Button();
+
+            button6.Location = new Point(296, 4);
             button6.Margin = new Padding(3, 4, 3, 4);
             button6.Name = "button6";
-            button6.Size = new Size(46, 53);
+            button6.Size = new Size(90,40);
             button6.TabIndex = 9;
             button6.Text = "Filter";
             button6.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            button7.Location = new Point(110, 4);
-            button7.Margin = new Padding(3, 4, 3, 4);
-            button7.Name = "button7";
-            button7.Size = new Size(46, 53);
-            button7.TabIndex = 8;
-            button7.Text = "Remove";
-            button7.UseVisualStyleBackColor = true;
+            doctorRemoveButton.Location = new Point(200, 4);
+            doctorRemoveButton.Name = "doctorRemoveButton";
+            doctorRemoveButton.Size = new Size(90, 40);
+            doctorRemoveButton.TabIndex = 8;
+            doctorRemoveButton.Text = "Remove";
+            doctorRemoveButton.UseVisualStyleBackColor = true;
+            doctorRemoveButton.Click += removeButton_Click;
             // 
-            // button8
+            // doctorEditButton
             // 
-            button8.BackgroundImageLayout = ImageLayout.Zoom;
-            button8.Location = new Point(58, 4);
-            button8.Margin = new Padding(3, 4, 3, 4);
-            button8.Name = "button8";
-            button8.Size = new Size(46, 53);
-            button8.TabIndex = 7;
-            button8.Text = "Edit";
-            button8.UseVisualStyleBackColor = true;
+            doctorEditButton.BackgroundImageLayout = ImageLayout.Zoom;
+            doctorEditButton.Location = new Point(103, 4);
+            doctorEditButton.Name = "doctorEditButton";
+            doctorEditButton.Size = new Size(90, 40);
+            doctorEditButton.TabIndex = 7;
+            doctorEditButton.Text = "Edit";
+            doctorEditButton.UseVisualStyleBackColor = true;
+            doctorEditButton.Click += doctorEditButton_Click;
+            //
+            //  doctorAddButton
             // 
-            // button9
-            // 
-            button9.BackgroundImageLayout = ImageLayout.Zoom;
-            button9.Location = new Point(6, 4);
-            button9.Margin = new Padding(3, 4, 3, 4);
-            button9.Name = "button9";
-            button9.Size = new Size(46, 53);
-            button9.TabIndex = 6;
-            button9.Text = "Add";
-            button9.UseVisualStyleBackColor = true;
+            doctorAddButton.BackgroundImageLayout = ImageLayout.Zoom;
+            doctorAddButton.Location = new Point(9, 4);
+            doctorAddButton.Name = "doctorAddButton";
+            doctorAddButton.Size = new Size(90, 40);
+            doctorAddButton.TabIndex = 6;
+            doctorAddButton.Text = "Add";
+            doctorAddButton.UseVisualStyleBackColor = true;
+            doctorAddButton.Click += doctorAddButton_Click;
             // 
             // dataGridViewDoctor
             // 
@@ -427,9 +429,9 @@
         private ToolStripButton toolStripButton1;
         private TabPage tp_doctors;
         private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button doctorRemoveButton;
+        private Button doctorEditButton;
+        private Button doctorAddButton;
         private DataGridView dataGridViewDoctor;
         private TabPage tp_records;
         private Button buttonRemovePatient;
