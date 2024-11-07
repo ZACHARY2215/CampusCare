@@ -75,6 +75,47 @@ namespace CampusCare.ModelViews
                 command.ExecuteNonQuery();
                 connection.Close();
             }
+
+        }
+        public void UpdatePatient(PatientModel patient)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    UPDATE Patients SET
+                        first_name = @FirstName,
+                        last_name = @LastName,
+                        birth_date = @BirthDate,
+                        gender = @Gender,
+                        student_or_staff = @StudentOrStaff,
+                        id_number = @IdNumber,
+                        grade_or_department = @GradeOrDepartment,
+                        contact_number = @ContactNumber
+                    WHERE patient_id = @PatientId;";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FirstName", patient.first_name);
+                command.Parameters.AddWithValue("@LastName", patient.last_name);
+                command.Parameters.AddWithValue("@BirthDate", patient.birth_date);
+                command.Parameters.AddWithValue("@Gender", patient.gender);
+                command.Parameters.AddWithValue("@StudentOrStaff", patient.student_or_staff);
+                command.Parameters.AddWithValue("@IdNumber", patient.id_number);
+                command.Parameters.AddWithValue("@GradeOrDepartment", patient.grade_or_department);
+                command.Parameters.AddWithValue("@ContactNumber", patient.contact_number);
+                command.Parameters.AddWithValue("@PatientId", patient.patient_id);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                // Update the patient in the Patients list
+                var existingPatient = Patients.Find(p => p.patient_id == patient.patient_id);
+                if (existingPatient != null)
+                {
+                    int index = Patients.IndexOf(existingPatient);
+                    Patients[index] = patient;
+                }
+            }
         }
     }
 }

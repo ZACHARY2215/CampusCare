@@ -72,7 +72,7 @@ namespace CampusCare.Views
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
 
-        
+
 
         private void buttonAddPatient_Click(object sender, EventArgs e)
         {
@@ -80,8 +80,8 @@ namespace CampusCare.Views
             {
                 if (ap.ShowDialog() == DialogResult.OK)
                 {
-                    patientMV.LoadPatients(); 
-                    LoadPatientData();        
+                    patientMV.LoadPatients();
+                    LoadPatientData();
                 }
             }
         }
@@ -89,15 +89,27 @@ namespace CampusCare.Views
 
         private void buttonEditPatient_Click(object sender, EventArgs e)
         {
-            PatientModel patient = null;  // TODO: make a function that gets the patient from selected row
-            using (EditPatient ep = new(patient))
+            // Get the selected patient from the DataGridView
+            if (dataGridViewPatient.CurrentRow != null)
             {
-                if (ep.ShowDialog() == DialogResult.OK)
+                PatientModel selectedPatient = dataGridViewPatient.CurrentRow.DataBoundItem as PatientModel;
+                if (selectedPatient != null)
                 {
-                    patient = ep.Patient;
+                    using (EditPatient ep = new(selectedPatient, patientMV))
+                    {
+                        if (ep.ShowDialog() == DialogResult.OK)
+                        {
+                            // Refresh the DataGridView
+                            dataGridViewPatient.Refresh();
+                        }
+                    }
                 }
             }
-            // TODO: sql
+            else
+            {
+                MessageBox.Show("Please select a patient to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            LoadPatientData() ;
         }
 
         private void buttonViewPatient_Click(object sender, EventArgs e)
