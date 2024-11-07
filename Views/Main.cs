@@ -109,7 +109,7 @@ namespace CampusCare.Views
             {
                 MessageBox.Show("Please select a patient to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            LoadPatientData() ;
+            LoadPatientData();
         }
 
         private void buttonViewPatient_Click(object sender, EventArgs e)
@@ -118,6 +118,11 @@ namespace CampusCare.Views
             {
                 vp.ShowDialog();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

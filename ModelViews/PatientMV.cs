@@ -117,5 +117,21 @@ namespace CampusCare.ModelViews
                 }
             }
         }
+        public void RemovePatient(PatientModel patient)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Patients WHERE patient_id = @PatientId";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@PatientId", patient.patient_id);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                // Remove the patient from the list
+                Patients.Remove(patient);
+            }
+        }
     }
 }
