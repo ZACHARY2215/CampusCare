@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CampusCare.Models
 {
-    internal class PatientModel
+    public class PatientModel
     {
         public int patient_id { get; set; }
         public string first_name { get; set; }
@@ -18,7 +14,5 @@ namespace CampusCare.Models
         public string grade_or_department { get; set; }
         public long contact_number { get; set; }
         public DateTime date_registered { get; set; }
-
     }
-
 }

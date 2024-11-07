@@ -1,12 +1,8 @@
-﻿using CampusCare.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using System.Diagnostics;
+using CampusCare.Models;
 
 namespace CampusCare.ModelViews
 {
@@ -15,7 +11,7 @@ namespace CampusCare.ModelViews
         public string connectionString;
         public List<PatientModel> Patients { get; set; } = new List<PatientModel>();
 
-        public PatientMV() 
+        public PatientMV()
         {
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LoadPatients();
@@ -27,14 +23,14 @@ namespace CampusCare.ModelViews
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "Select * from Patients;";
+                string query = "SELECT * FROM Patients;";
                 SqlCommand command = new SqlCommand(query, connection);
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    PatientModel student = new PatientModel
+                    PatientModel patient = new PatientModel
                     {
                         patient_id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
                         first_name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
@@ -47,8 +43,36 @@ namespace CampusCare.ModelViews
                         contact_number = reader.IsDBNull(8) ? 0 : reader.GetInt64(8),
                         date_registered = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9)
                     };
-                    Patients.Add(student);
+                    Patients.Add(patient);
                 }
+                connection.Close();
+            }
+        }
+
+        // Method to add a new patient to the database
+        public void AddPatient(PatientModel patient)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    INSERT INTO Patients
+                    (first_name, last_name, birth_date, gender, student_or_staff, id_number, grade_or_department, contact_number, date_registered)
+                    VALUES
+                    (@FirstName, @LastName, @BirthDate, @Gender, @StudentOrStaff, @IdNumber, @GradeOrDepartment, @ContactNumber, @DateRegistered);";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FirstName", patient.first_name);
+                command.Parameters.AddWithValue("@LastName", patient.last_name);
+                command.Parameters.AddWithValue("@BirthDate", patient.birth_date);
+                command.Parameters.AddWithValue("@Gender", patient.gender);
+                command.Parameters.AddWithValue("@StudentOrStaff", patient.student_or_staff);
+                command.Parameters.AddWithValue("@IdNumber", patient.id_number);
+                command.Parameters.AddWithValue("@GradeOrDepartment", patient.grade_or_department);
+                command.Parameters.AddWithValue("@ContactNumber", patient.contact_number);
+                command.Parameters.AddWithValue("@DateRegistered", patient.date_registered);
+
+                connection.Open();
+                command.ExecuteNonQuery();
                 connection.Close();
             }
         }
