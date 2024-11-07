@@ -13,7 +13,7 @@ namespace CampusCare.Views
 
             // Populate combo boxes with appropriate options
             comboBox_studentorstaff.Items.AddRange(new string[] { "Student", "Staff" });
-            comboBox_gradeordepartment.Items.AddRange(new string[] { "Grade 1", "Grade 2", "Department A", "Department B" });
+            comboBox_gradeordepartment.Items.AddRange(new string[] { "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12", "ATYCB", "CEA", "CHS", "CCIS", "CAS" });
         }
 
         private void buttonOk_Click(object sender, EventArgs e)
