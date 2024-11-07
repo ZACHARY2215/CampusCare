@@ -6,7 +6,7 @@ using CampusCare.Models;
 
 namespace CampusCare.ModelViews
 {
-    public class PatientMV
+    internal class PatientMV
     {
         public string connectionString;
         public List<PatientModel> Patients { get; set; } = new List<PatientModel>();
