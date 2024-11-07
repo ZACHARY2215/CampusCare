@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CampusCare.Models
 {
-    internal class DoctorModel
+    public class DoctorModel
     {
        
             public int doctor_id { get; set; }

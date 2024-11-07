@@ -9,7 +9,7 @@ using Microsoft.Data.SqlClient;
 
 namespace CampusCare.ModelViews
 {
-    internal class DoctorMV
+    public class DoctorMV
     {
         public string connectionString;
         public List<DoctorModel> Doctors { get; set; } = new List<DoctorModel>();
@@ -18,6 +18,83 @@ namespace CampusCare.ModelViews
         {
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             LoadDoctors();
+        }
+
+        public void AddDoctor(DoctorModel doctor)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    INSERT INTO Doctors
+                    (first_name, last_name, email, role, contact_number, status)
+                    VALUES
+                    (@FirstName, @LastName, @Email, @Role, @ContactNumber, @Status);";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FirstName", doctor.first_name);
+                command.Parameters.AddWithValue("@LastName", doctor.last_name);
+                command.Parameters.AddWithValue("@Email", doctor.email);
+                command.Parameters.AddWithValue("@Role", doctor.role);
+                command.Parameters.AddWithValue("@ContactNumber", doctor.contact_number);
+                command.Parameters.AddWithValue("@Status", doctor.status);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+        }
+        public void DeleteDoctorById(int doctor_id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    DELETE FROM Doctors WHERE doctor_id = @doctor_id";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@doctor_id", doctor_id);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+
+        }
+        public void UpdateDoctor(DoctorModel doctor)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    UPDATE Doctors SET
+                        first_name = @FirstName,
+                        last_name = @LastName,
+                        email = @Email,
+                        role = @Role,
+                        contact_number = @ContactNumber,
+                        status = @Status
+                    WHERE doctor_id = @DoctorId;";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@FirstName", doctor.first_name);
+                command.Parameters.AddWithValue("@LastName", doctor.last_name);
+                command.Parameters.AddWithValue("@Email", doctor.email);
+                command.Parameters.AddWithValue("@Role", doctor.role);
+                command.Parameters.AddWithValue("@ContactNumber", doctor.contact_number);
+                command.Parameters.AddWithValue("@Status", doctor.status);
+                command.Parameters.AddWithValue("@DoctorId", doctor.doctor_id);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+                // Update the patient in the Patients list
+                var existingDoctor = Doctors.Find(p => p.doctor_id == doctor.doctor_id);
+                if (existingDoctor != null)
+                {
+                    int index = Doctors.IndexOf(existingDoctor);
+                    Doctors[index] = doctor;
+                }
+            }
         }
 
         public void LoadDoctors()

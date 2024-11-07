@@ -133,5 +133,57 @@ namespace CampusCare.Views
             }
             LoadPatientData();
         }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDoctor.CurrentRow != null)
+            {
+                DoctorModel selectedDoctor = dataGridViewDoctor.CurrentRow.DataBoundItem as DoctorModel;
+                if (selectedDoctor != null)
+                {
+                    doctorMV.DeleteDoctorById(selectedDoctor.doctor_id);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a doctor to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            LoadDoctorData();
+        }
+
+        private void doctorAddButton_Click(object sender, EventArgs e)
+        {
+            using (AddDoctor ad = new())
+            {
+                if (ad.ShowDialog() == DialogResult.OK)
+                {
+                    doctorMV.LoadDoctors();
+                    LoadDoctorData();
+                }
+            }
+        }
+
+        private void doctorEditButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewDoctor.CurrentRow != null)
+            {
+                DoctorModel selectedDoctor = dataGridViewDoctor.CurrentRow.DataBoundItem as DoctorModel;
+                if (selectedDoctor != null)
+                {
+                    using (EditDoctor ep = new(selectedDoctor, doctorMV))
+                    {
+                        if (ep.ShowDialog() == DialogResult.OK)
+                        {
+                            dataGridViewDoctor.Refresh();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a doctor to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            LoadDoctorData();
+        }
     }
 }
