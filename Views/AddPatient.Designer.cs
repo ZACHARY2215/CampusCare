@@ -30,14 +30,14 @@
         {
             buttonCancel = new Button();
             buttonOk = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            textBox4 = new TextBox();
-            comboBox1 = new ComboBox();
-            textBox5 = new TextBox();
-            comboBox2 = new ComboBox();
+            textBox_firstname = new TextBox();
+            textBox_lastname = new TextBox();
+            textBox_gender = new TextBox();
+            dateTimePicker_birthday = new DateTimePicker();
+            textBox_contact = new TextBox();
+            comboBox_studentorstaff = new ComboBox();
+            textBox_id = new TextBox();
+            comboBox_gradeordepartment = new ComboBox();
             SuspendLayout();
             // 
             // buttonCancel
@@ -60,82 +60,82 @@
             buttonOk.UseVisualStyleBackColor = true;
             buttonOk.Click += buttonOk_Click;
             // 
-            // textBox1
+            // textBox_firstname
             // 
-            textBox1.Location = new Point(12, 12);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "First name";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 5;
+            textBox_firstname.Location = new Point(12, 12);
+            textBox_firstname.Name = "textBox_firstname";
+            textBox_firstname.PlaceholderText = "First name";
+            textBox_firstname.Size = new Size(100, 23);
+            textBox_firstname.TabIndex = 5;
             // 
-            // textBox2
+            // textBox_lastname
             // 
-            textBox2.Location = new Point(118, 12);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Last name";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 6;
+            textBox_lastname.Location = new Point(118, 12);
+            textBox_lastname.Name = "textBox_lastname";
+            textBox_lastname.PlaceholderText = "Last name";
+            textBox_lastname.Size = new Size(100, 23);
+            textBox_lastname.TabIndex = 6;
             // 
-            // textBox3
+            // textBox_gender
             // 
-            textBox3.Location = new Point(12, 70);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "Gender";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 7;
+            textBox_gender.Location = new Point(12, 70);
+            textBox_gender.Name = "textBox_gender";
+            textBox_gender.PlaceholderText = "Gender";
+            textBox_gender.Size = new Size(100, 23);
+            textBox_gender.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // dateTimePicker_birthday
             // 
-            dateTimePicker1.Location = new Point(12, 41);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 8;
+            dateTimePicker_birthday.Location = new Point(12, 41);
+            dateTimePicker_birthday.Name = "dateTimePicker_birthday";
+            dateTimePicker_birthday.Size = new Size(200, 23);
+            dateTimePicker_birthday.TabIndex = 8;
             // 
-            // textBox4
+            // textBox_contact
             // 
-            textBox4.Location = new Point(12, 128);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "Contact no.";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 9;
+            textBox_contact.Location = new Point(12, 128);
+            textBox_contact.Name = "textBox_contact";
+            textBox_contact.PlaceholderText = "Contact no.";
+            textBox_contact.Size = new Size(100, 23);
+            textBox_contact.TabIndex = 9;
             // 
-            // comboBox1
+            // comboBox_studentorstaff
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(118, 70);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 10;
+            comboBox_studentorstaff.FormattingEnabled = true;
+            comboBox_studentorstaff.Location = new Point(118, 70);
+            comboBox_studentorstaff.Name = "comboBox_studentorstaff";
+            comboBox_studentorstaff.Size = new Size(121, 23);
+            comboBox_studentorstaff.TabIndex = 10;
             // 
-            // textBox5
+            // textBox_id
             // 
-            textBox5.Location = new Point(12, 99);
-            textBox5.Name = "textBox5";
-            textBox5.PlaceholderText = "ID";
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 11;
+            textBox_id.Location = new Point(12, 99);
+            textBox_id.Name = "textBox_id";
+            textBox_id.PlaceholderText = "ID";
+            textBox_id.Size = new Size(100, 23);
+            textBox_id.TabIndex = 11;
             // 
-            // comboBox2
+            // comboBox_gradeordepartment
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(118, 99);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 12;
+            comboBox_gradeordepartment.FormattingEnabled = true;
+            comboBox_gradeordepartment.Location = new Point(118, 99);
+            comboBox_gradeordepartment.Name = "comboBox_gradeordepartment";
+            comboBox_gradeordepartment.Size = new Size(121, 23);
+            comboBox_gradeordepartment.TabIndex = 12;
             // 
             // AddPatient
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(443, 279);
-            Controls.Add(comboBox2);
-            Controls.Add(textBox5);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox4);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(comboBox_gradeordepartment);
+            Controls.Add(textBox_id);
+            Controls.Add(comboBox_studentorstaff);
+            Controls.Add(textBox_contact);
+            Controls.Add(dateTimePicker_birthday);
+            Controls.Add(textBox_gender);
+            Controls.Add(textBox_lastname);
+            Controls.Add(textBox_firstname);
             Controls.Add(buttonCancel);
             Controls.Add(buttonOk);
             Name = "AddPatient";
@@ -148,13 +148,13 @@
 
         private Button buttonCancel;
         private Button buttonOk;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox4;
-        private ComboBox comboBox1;
-        private TextBox textBox5;
-        private ComboBox comboBox2;
+        private TextBox textBox_firstname;
+        private TextBox textBox_lastname;
+        private TextBox textBox_gender;
+        private DateTimePicker dateTimePicker_birthday;
+        private TextBox textBox_contact;
+        private ComboBox comboBox_studentorstaff;
+        private TextBox textBox_id;
+        private ComboBox comboBox_gradeordepartment;
     }
 }

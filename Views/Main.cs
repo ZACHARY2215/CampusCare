@@ -1,4 +1,5 @@
-﻿using CampusCare.ModelViews;
+﻿using CampusCare.Models;
+using CampusCare.ModelViews;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,13 +96,15 @@ namespace CampusCare.Views
 
         private void buttonEditPatient_Click(object sender, EventArgs e)
         {
-            using (EditPatient ep = new())
+            PatientModel patient = null;  // TODO: make a function that gets the patient from selected row
+            using (EditPatient ep = new(patient))
             {
                 if (ep.ShowDialog() == DialogResult.OK)
                 {
-
+                    patient = ep.Patient;
                 }
             }
+            // TODO: sql
         }
 
         private void buttonViewPatient_Click(object sender, EventArgs e)

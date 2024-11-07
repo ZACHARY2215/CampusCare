@@ -25,6 +25,7 @@ namespace CampusCare.Views
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             DialogResult= DialogResult.Cancel;
+            
         }
     }
 }
