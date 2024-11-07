@@ -49,6 +49,23 @@ namespace CampusCare.ModelViews
             }
         }
 
+        public void DeletePatientById(int patient_id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    DELETE FROM Patients WHERE patient_id = @patient_id";
+
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@patient_id", patient_id);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+
+        }
+
         // Method to add a new patient to the database
         public void AddPatient(PatientModel patient)
         {

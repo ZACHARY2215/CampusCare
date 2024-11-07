@@ -32,18 +32,21 @@ namespace CampusCare.Views
         private void LoadPatientData()
         {
             dataGridViewPatient.DataSource = null;
+            patientMV.LoadPatients();
             dataGridViewPatient.DataSource = patientMV.Patients;
         }
 
         private void LoadDoctorData()
         {
             dataGridViewDoctor.DataSource = null;
+            doctorMV.LoadDoctors();
             dataGridViewDoctor.DataSource = doctorMV.Doctors;
         }
 
         private void LoadRecentPatientData()
         {
             dataGridViewRecentPatients.DataSource = null;
+            recentPatientsMV.LoadRecentPatients();
             dataGridViewRecentPatients.DataSource = recentPatientsMV.RecentPatients;
         }
 
@@ -112,12 +115,23 @@ namespace CampusCare.Views
             LoadPatientData();
         }
 
-        private void buttonViewPatient_Click(object sender, EventArgs e)
+
+        private void buttonRemovePatient_Click(object sender, EventArgs e)
         {
-            using (ViewPatient vp = new())
+            // Get the selected patient from the DataGridView
+            if (dataGridViewPatient.CurrentRow != null)
             {
-                vp.ShowDialog();
+                PatientModel selectedPatient = dataGridViewPatient.CurrentRow.DataBoundItem as PatientModel;
+                if (selectedPatient != null)
+                {
+                    patientMV.DeletePatientById(selectedPatient.patient_id);
+                }
             }
+            else
+            {
+                MessageBox.Show("Please select a patient to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            LoadPatientData();
         }
 
         private void label1_Click(object sender, EventArgs e)
