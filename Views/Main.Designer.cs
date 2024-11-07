@@ -34,18 +34,20 @@
             toolStripLabel1 = new ToolStripLabel();
             toolStripButton1 = new ToolStripButton();
             tp_doctors = new TabPage();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
+            doctorRemoveButton = new Button();
+            doctorEditButton = new Button();
+            doctorAddButton = new Button();
+            dataGridViewDoctor = new DataGridView();
             dataGridViewDoctor = new DataGridView();
             tp_records = new TabPage();
-            buttonViewPatient = new Button();
-            buttonFilterPatient = new Button();
             buttonRemovePatient = new Button();
             buttonEditPatient = new Button();
             buttonAddPatient = new Button();
             dataGridViewPatient = new DataGridView();
+            textBoxSearch = new TextBox();
+            buttonSearch = new Button();
+            comboBoxSortOptions = new ComboBox();
+            buttonViewPatient = new Button();
             tp_dashboard = new TabPage();
             label5 = new Label();
             panel2 = new Panel();
@@ -102,9 +104,9 @@
             // tp_doctors
             // 
             tp_doctors.Controls.Add(button6);
-            tp_doctors.Controls.Add(button7);
-            tp_doctors.Controls.Add(button8);
-            tp_doctors.Controls.Add(button9);
+            tp_doctors.Controls.Add(doctorRemoveButton);
+            tp_doctors.Controls.Add(doctorEditButton);
+            tp_doctors.Controls.Add(doctorAddButton);
             tp_doctors.Controls.Add(dataGridViewDoctor);
             tp_doctors.Location = new Point(154, 4);
             tp_doctors.Margin = new Padding(3, 4, 3, 4);
@@ -117,45 +119,47 @@
             // 
             // button6
             // 
-            button6.Location = new Point(162, 4);
+            button6 = new Button();
+
+            button6.Location = new Point(296, 4);
             button6.Margin = new Padding(3, 4, 3, 4);
             button6.Name = "button6";
-            button6.Size = new Size(46, 53);
+            button6.Size = new Size(90, 40);
             button6.TabIndex = 9;
             button6.Text = "Filter";
             button6.UseVisualStyleBackColor = true;
             // 
             // button7
             // 
-            button7.Location = new Point(110, 4);
-            button7.Margin = new Padding(3, 4, 3, 4);
-            button7.Name = "button7";
-            button7.Size = new Size(46, 53);
-            button7.TabIndex = 8;
-            button7.Text = "Remove";
-            button7.UseVisualStyleBackColor = true;
+            doctorRemoveButton.Location = new Point(200, 4);
+            doctorRemoveButton.Name = "doctorRemoveButton";
+            doctorRemoveButton.Size = new Size(90, 40);
+            doctorRemoveButton.TabIndex = 8;
+            doctorRemoveButton.Text = "Remove";
+            doctorRemoveButton.UseVisualStyleBackColor = true;
+            doctorRemoveButton.Click += removeButton_Click;
             // 
-            // button8
+            // doctorEditButton
             // 
-            button8.BackgroundImageLayout = ImageLayout.Zoom;
-            button8.Location = new Point(58, 4);
-            button8.Margin = new Padding(3, 4, 3, 4);
-            button8.Name = "button8";
-            button8.Size = new Size(46, 53);
-            button8.TabIndex = 7;
-            button8.Text = "Edit";
-            button8.UseVisualStyleBackColor = true;
+            doctorEditButton.BackgroundImageLayout = ImageLayout.Zoom;
+            doctorEditButton.Location = new Point(103, 4);
+            doctorEditButton.Name = "doctorEditButton";
+            doctorEditButton.Size = new Size(90, 40);
+            doctorEditButton.TabIndex = 7;
+            doctorEditButton.Text = "Edit";
+            doctorEditButton.UseVisualStyleBackColor = true;
+            doctorEditButton.Click += doctorEditButton_Click;
+            //
+            //  doctorAddButton
             // 
-            // button9
-            // 
-            button9.BackgroundImageLayout = ImageLayout.Zoom;
-            button9.Location = new Point(6, 4);
-            button9.Margin = new Padding(3, 4, 3, 4);
-            button9.Name = "button9";
-            button9.Size = new Size(46, 53);
-            button9.TabIndex = 6;
-            button9.Text = "Add";
-            button9.UseVisualStyleBackColor = true;
+            doctorAddButton.BackgroundImageLayout = ImageLayout.Zoom;
+            doctorAddButton.Location = new Point(9, 4);
+            doctorAddButton.Name = "doctorAddButton";
+            doctorAddButton.Size = new Size(90, 40);
+            doctorAddButton.TabIndex = 6;
+            doctorAddButton.Text = "Add";
+            doctorAddButton.UseVisualStyleBackColor = true;
+            doctorAddButton.Click += doctorAddButton_Click;
             // 
             // dataGridViewDoctor
             // 
@@ -171,12 +175,13 @@
             // 
             // tp_records
             // 
-            tp_records.Controls.Add(buttonViewPatient);
-            tp_records.Controls.Add(buttonFilterPatient);
             tp_records.Controls.Add(buttonRemovePatient);
             tp_records.Controls.Add(buttonEditPatient);
             tp_records.Controls.Add(buttonAddPatient);
             tp_records.Controls.Add(dataGridViewPatient);
+            tp_records.Controls.Add(textBoxSearch);
+            tp_records.Controls.Add(buttonSearch);
+            tp_records.Controls.Add(comboBoxSortOptions);
             tp_records.Location = new Point(154, 4);
             tp_records.Margin = new Padding(3, 4, 3, 4);
             tp_records.Name = "tp_records";
@@ -186,44 +191,24 @@
             tp_records.Text = "Patient Records";
             tp_records.UseVisualStyleBackColor = true;
             // 
-            // buttonViewPatient
-            // 
-            buttonViewPatient.Location = new Point(6, 4);
-            buttonViewPatient.Margin = new Padding(3, 4, 3, 4);
-            buttonViewPatient.Name = "buttonViewPatient";
-            buttonViewPatient.Size = new Size(103, 53);
-            buttonViewPatient.TabIndex = 6;
-            buttonViewPatient.Text = "View";
-            buttonViewPatient.UseVisualStyleBackColor = true;
-            buttonViewPatient.Click += buttonViewPatient_Click;
-            // 
-            // buttonFilterPatient
-            // 
-            buttonFilterPatient.Location = new Point(442, 4);
-            buttonFilterPatient.Margin = new Padding(3, 4, 3, 4);
-            buttonFilterPatient.Name = "buttonFilterPatient";
-            buttonFilterPatient.Size = new Size(103, 53);
-            buttonFilterPatient.TabIndex = 4;
-            buttonFilterPatient.Text = "Filter";
-            buttonFilterPatient.UseVisualStyleBackColor = true;
-            // 
             // buttonRemovePatient
             // 
-            buttonRemovePatient.Location = new Point(333, 4);
+            buttonRemovePatient.Location = new Point(304, 12);
             buttonRemovePatient.Margin = new Padding(3, 4, 3, 4);
             buttonRemovePatient.Name = "buttonRemovePatient";
-            buttonRemovePatient.Size = new Size(103, 53);
+            buttonRemovePatient.Size = new Size(83, 29);
             buttonRemovePatient.TabIndex = 3;
             buttonRemovePatient.Text = "Remove";
             buttonRemovePatient.UseVisualStyleBackColor = true;
+            buttonRemovePatient.Click += buttonRemovePatient_Click;
             // 
             // buttonEditPatient
             // 
             buttonEditPatient.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonEditPatient.Location = new Point(224, 4);
+            buttonEditPatient.Location = new Point(251, 48);
             buttonEditPatient.Margin = new Padding(3, 4, 3, 4);
             buttonEditPatient.Name = "buttonEditPatient";
-            buttonEditPatient.Size = new Size(103, 53);
+            buttonEditPatient.Size = new Size(68, 28);
             buttonEditPatient.TabIndex = 2;
             buttonEditPatient.Text = "Edit";
             buttonEditPatient.UseVisualStyleBackColor = true;
@@ -232,10 +217,10 @@
             // buttonAddPatient
             // 
             buttonAddPatient.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonAddPatient.Location = new Point(115, 4);
+            buttonAddPatient.Location = new Point(162, 48);
             buttonAddPatient.Margin = new Padding(3, 4, 3, 4);
             buttonAddPatient.Name = "buttonAddPatient";
-            buttonAddPatient.Size = new Size(103, 53);
+            buttonAddPatient.Size = new Size(83, 28);
             buttonAddPatient.TabIndex = 1;
             buttonAddPatient.Text = "Add";
             buttonAddPatient.UseVisualStyleBackColor = true;
@@ -247,12 +232,48 @@
             dataGridViewPatient.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewPatient.BackgroundColor = SystemColors.Control;
             dataGridViewPatient.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewPatient.Location = new Point(6, 65);
+            dataGridViewPatient.Location = new Point(6, 91);
             dataGridViewPatient.Margin = new Padding(3, 4, 3, 4);
             dataGridViewPatient.Name = "dataGridViewPatient";
             dataGridViewPatient.RowHeadersWidth = 51;
-            dataGridViewPatient.Size = new Size(721, 465);
+            dataGridViewPatient.Size = new Size(721, 439);
             dataGridViewPatient.TabIndex = 0;
+            // 
+            // textBoxSearch
+            // 
+            textBoxSearch.Location = new Point(6, 14);
+            textBoxSearch.Name = "textBoxSearch";
+            textBoxSearch.PlaceholderText = "Search patients...";
+            textBoxSearch.Size = new Size(200, 27);
+            textBoxSearch.TabIndex = 5;
+            textBoxSearch.TextChanged += textBoxSearch_TextChanged;
+            // 
+            // buttonSearch
+            // 
+            buttonSearch.Location = new Point(212, 12);
+            buttonSearch.Name = "buttonSearch";
+            buttonSearch.Size = new Size(86, 29);
+            buttonSearch.TabIndex = 6;
+            buttonSearch.Text = "Search";
+            buttonSearch.UseVisualStyleBackColor = true;
+            buttonSearch.Click += buttonSearch_Click;
+            // 
+            // comboBoxSortOptions
+            // 
+            comboBoxSortOptions.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSortOptions.Items.AddRange(new object[] { "First Name (A-Z)", "First Name (Z-A)", "Last Name (A-Z)", "Last Name (Z-A)", "ID (Ascending)", "ID (Descending)", "Gender", "Grade/Department" });
+            comboBoxSortOptions.Location = new Point(6, 47);
+            comboBoxSortOptions.Name = "comboBoxSortOptions";
+            comboBoxSortOptions.Size = new Size(150, 28);
+            comboBoxSortOptions.TabIndex = 7;
+            comboBoxSortOptions.SelectedIndexChanged += comboBoxSortOptions_SelectedIndexChanged;
+            // 
+            // buttonViewPatient
+            // 
+            buttonViewPatient.Location = new Point(0, 0);
+            buttonViewPatient.Name = "buttonViewPatient";
+            buttonViewPatient.Size = new Size(75, 23);
+            buttonViewPatient.TabIndex = 0;
             // 
             // tp_dashboard
             // 
@@ -388,6 +409,7 @@
             tp_doctors.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctor).EndInit();
             tp_records.ResumeLayout(false);
+            tp_records.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewPatient).EndInit();
             tp_dashboard.ResumeLayout(false);
             tp_dashboard.PerformLayout();
@@ -407,13 +429,11 @@
         private ToolStripButton toolStripButton1;
         private TabPage tp_doctors;
         private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button doctorRemoveButton;
+        private Button doctorEditButton;
+        private Button doctorAddButton;
         private DataGridView dataGridViewDoctor;
         private TabPage tp_records;
-        
-        private Button buttonFilterPatient;
         private Button buttonRemovePatient;
         private Button buttonEditPatient;
         private Button buttonAddPatient;
@@ -429,6 +449,11 @@
         private DataGridView dataGridViewRecentPatients;
         private TabControl tabControl1;
         private Button buttonViewPatient;
+        private TextBox textBoxSearch;
+        private Button buttonSearch;
+        private ComboBox comboBoxSortOptions;
+        //private Button buttonSort;
+
 
 
     }
