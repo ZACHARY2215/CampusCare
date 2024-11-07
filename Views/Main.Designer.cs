@@ -39,7 +39,7 @@
             button9 = new Button();
             dataGridViewDoctor = new DataGridView();
             tp_records = new TabPage();
-            buttonAppointment = new Button();
+            
             buttonFilterPatient = new Button();
             buttonRemovePatient = new Button();
             buttonEditPatient = new Button();
@@ -166,7 +166,6 @@
             // tp_records
             // 
             tp_records.Controls.Add(buttonViewPatient);
-            tp_records.Controls.Add(buttonAppointment);
             tp_records.Controls.Add(buttonFilterPatient);
             tp_records.Controls.Add(buttonRemovePatient);
             tp_records.Controls.Add(buttonEditPatient);
@@ -182,13 +181,7 @@
             // 
             // buttonAppointment
             // 
-            buttonAppointment.Location = new Point(101, 3);
-            buttonAppointment.Name = "buttonAppointment";
-            buttonAppointment.Size = new Size(90, 40);
-            buttonAppointment.TabIndex = 5;
-            buttonAppointment.Text = "Appointment";
-            buttonAppointment.UseVisualStyleBackColor = true;
-            buttonAppointment.Click += buttonAppointment_Click;
+          
             // 
             // buttonFilterPatient
             // 
@@ -403,7 +396,7 @@
         private Button button9;
         private DataGridView dataGridViewDoctor;
         private TabPage tp_records;
-        private Button buttonAppointment;
+        
         private Button buttonFilterPatient;
         private Button buttonRemovePatient;
         private Button buttonEditPatient;

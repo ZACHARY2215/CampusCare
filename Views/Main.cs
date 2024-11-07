@@ -72,16 +72,7 @@ namespace CampusCare.Views
             g.DrawString(_tabPage.Text, _tabFont, _textBrush, _tabBounds, new StringFormat(_stringFlags));
         }
 
-        private void buttonAppointment_Click(object sender, EventArgs e)
-        {
-            using (Appointment ap = new())
-            {
-                if (ap.ShowDialog() == DialogResult.OK)
-                {
-
-                }
-            }
-        }
+        
 
         private void buttonAddPatient_Click(object sender, EventArgs e)
         {
