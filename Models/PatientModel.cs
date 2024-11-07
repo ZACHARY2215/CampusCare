@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CampusCare.Models
 {
@@ -18,7 +14,5 @@ namespace CampusCare.Models
         public string grade_or_department { get; set; }
         public long contact_number { get; set; }
         public DateTime date_registered { get; set; }
-
     }
-
 }
