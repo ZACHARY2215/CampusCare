@@ -36,16 +36,16 @@ namespace CampusCare.ModelViews
                 {
                     PatientModel student = new PatientModel
                     {
-                        patient_id = reader.GetInt32(0),
-                        first_name= reader.GetString(1),
-                        last_name = reader.GetString(2),
-                        birth_date = reader.GetDateTime(3),
-                        gender = reader.GetString(4),
-                        student_or_staff = reader.GetString(5),
-                        id_number = reader.GetInt32(6),
-                        grade_or_department = reader.GetString(7),
-                        contact_number = reader.GetInt64(8),    
-                        date_registered = reader.GetDateTime(9)
+                        patient_id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                        first_name = reader.IsDBNull(1) ? string.Empty : reader.GetString(1),
+                        last_name = reader.IsDBNull(2) ? string.Empty : reader.GetString(2),
+                        birth_date = reader.IsDBNull(3) ? DateTime.MinValue : reader.GetDateTime(3),
+                        gender = reader.IsDBNull(4) ? string.Empty : reader.GetString(4),
+                        student_or_staff = reader.IsDBNull(5) ? string.Empty : reader.GetString(5),
+                        id_number = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
+                        grade_or_department = reader.IsDBNull(7) ? string.Empty : reader.GetString(7),
+                        contact_number = reader.IsDBNull(8) ? 0 : reader.GetInt64(8),
+                        date_registered = reader.IsDBNull(9) ? DateTime.MinValue : reader.GetDateTime(9)
                     };
                     Patients.Add(student);
                 }
