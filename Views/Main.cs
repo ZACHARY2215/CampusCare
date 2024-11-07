@@ -160,6 +160,7 @@ namespace CampusCare.Views
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxSearch.Text))
+               
             {
                 // Reset to display all patients if the search box is cleared
                 dataGridViewPatient.DataSource = null;
