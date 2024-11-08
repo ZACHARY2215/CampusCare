@@ -56,6 +56,8 @@
             labelTodayRecords = new Label();
             dataGridViewRecentPatients = new DataGridView();
             tabControl1 = new TabControl();
+            tp_settings = new TabPage();
+            button_changePass = new Button();
             toolStrip1.SuspendLayout();
             tp_doctors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewDoctor).BeginInit();
@@ -66,6 +68,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRecentPatients).BeginInit();
             tabControl1.SuspendLayout();
+            tp_settings.SuspendLayout();
             SuspendLayout();
             // 
             // toolStrip1
@@ -354,6 +357,7 @@
             tabControl1.Controls.Add(tp_dashboard);
             tabControl1.Controls.Add(tp_records);
             tabControl1.Controls.Add(tp_doctors);
+            tabControl1.Controls.Add(tp_settings);
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
             tabControl1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabControl1.ItemSize = new Size(50, 150);
@@ -365,6 +369,29 @@
             tabControl1.SizeMode = TabSizeMode.Fixed;
             tabControl1.TabIndex = 2;
             tabControl1.DrawItem += tabControl1_DrawItem;
+            // 
+            // tp_settings
+            // 
+            tp_settings.Controls.Add(button_changePass);
+            tp_settings.Location = new Point(154, 4);
+            tp_settings.Name = "tp_settings";
+            tp_settings.Padding = new Padding(3);
+            tp_settings.Size = new Size(642, 406);
+            tp_settings.TabIndex = 4;
+            tp_settings.Text = "Settings";
+            tp_settings.UseVisualStyleBackColor = true;
+            // 
+            // button_changePass
+            // 
+            button_changePass.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button_changePass.Location = new Point(6, 5);
+            button_changePass.Margin = new Padding(3, 2, 3, 2);
+            button_changePass.Name = "button_changePass";
+            button_changePass.Size = new Size(142, 45);
+            button_changePass.TabIndex = 7;
+            button_changePass.Text = "Change password";
+            button_changePass.UseVisualStyleBackColor = true;
+            button_changePass.Click += button_changePass_Click;
             // 
             // Main
             // 
@@ -389,6 +416,7 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewRecentPatients).EndInit();
             tabControl1.ResumeLayout(false);
+            tp_settings.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -421,6 +449,7 @@
         //private Button buttonSort;
         private Label labelTodayRecords;
         private Label labelMonthlyRecords;
-
+        private TabPage tp_settings;
+        private Button button_changePass;
     }
 }
