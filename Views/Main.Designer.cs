@@ -93,16 +93,15 @@
             // toolStripButton1
             // 
             toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.Font = new Font("Montserrat", 9F);
             toolStripButton1.ImageTransparentColor = Color.Magenta;
             toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(54, 30);
-            toolStripButton1.Text = "About";
+            toolStripButton1.Size = new Size(111, 30);
+            toolStripButton1.Text = "CampusCare";
             // 
             // toolStripButton2
             // 
             toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
             toolStripButton2.ImageTransparentColor = Color.Magenta;
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(29, 30);
@@ -261,7 +260,7 @@
             // 
             comboBoxSortOptions.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxSortOptions.Font = new Font("Montserrat", 9F);
-            comboBoxSortOptions.Items.AddRange(new object[] { "<default>","First Name (A-Z)", "First Name (Z-A)", "Last Name (A-Z)", "Last Name (Z-A)", "School ID (Ascending)", "School ID (Descending)", "Gender", "Grade/Department" });
+            comboBoxSortOptions.Items.AddRange(new object[] { "<default>", "First Name (A-Z)", "First Name (Z-A)", "Last Name (A-Z)", "Last Name (Z-A)", "School ID (Ascending)", "School ID (Descending)", "Gender", "Grade/Department" });
             comboBoxSortOptions.Location = new Point(6, 47);
             comboBoxSortOptions.Name = "comboBoxSortOptions";
             comboBoxSortOptions.Size = new Size(150, 27);
@@ -317,7 +316,7 @@
             labelMonthlyRecords.Name = "labelMonthlyRecords";
             labelMonthlyRecords.Size = new Size(188, 99);
             labelMonthlyRecords.TabIndex = 3;
-            labelMonthlyRecords.Text = "Records added this month: 0";
+            labelMonthlyRecords.Text = "Records added this month 0";
             // 
             // panel1
             // 
