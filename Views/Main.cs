@@ -293,14 +293,26 @@ namespace CampusCare.Views
             labelMonthlyRecords.Text = $"Records added this month \n\t\t {monthlyRecordCount}";
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void button_changePass_Click(object sender, EventArgs e)
         {
-
+            using (CheckPassword checkpass = new())
+            {
+                if (checkpass.ShowDialog() == DialogResult.OK)
+                {
+                    ShowChangePassword();
+                }
+            }
         }
 
-        private void labelMonthlyRecords_Click(object sender, EventArgs e)
+        private void ShowChangePassword()
         {
+            using (ChangePassword changepass = new())
+            {
+                if (changepass.ShowDialog() == DialogResult.OK)
+                {
 
+                }
+            }
         }
 
     }
