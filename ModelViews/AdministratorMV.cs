@@ -44,5 +44,22 @@ namespace CampusCare.ModelViews
                 connection.Close();
             }
         }
+        public void UpdateAdminPassword(string password)
+        {
+            AdministratorModel administrator = Administrators[0];
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    UPDATE administrator SET
+                        pass_word = @newPassword
+                    Where admin_id = 1";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@newPassword", password);
+                connection.Open();
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
+        }
     }
 }

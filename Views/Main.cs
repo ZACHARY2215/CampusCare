@@ -200,10 +200,10 @@ namespace CampusCare.Views
                 case "Last Name (Z-A)":
                     patientMV.Patients = patientMV.Patients.OrderByDescending(p => p.last_name).ToList();
                     break;
-                case "ID (Ascending)":
+                case "School ID (Ascending)":
                     patientMV.Patients = patientMV.Patients.OrderBy(p => p.id_number).ToList();
                     break;
-                case "ID (Descending)":
+                case "School ID (Descending)":
                     patientMV.Patients = patientMV.Patients.OrderByDescending(p => p.id_number).ToList();
                     break;
                 case "Gender":
@@ -294,17 +294,6 @@ namespace CampusCare.Views
         }
 
         private void button_changePass_Click(object sender, EventArgs e)
-        {
-            using (CheckPassword checkpass = new())
-            {
-                if (checkpass.ShowDialog() == DialogResult.OK)
-                {
-                    ShowChangePassword();
-                }
-            }
-        }
-
-        private void ShowChangePassword()
         {
             using (ChangePassword changepass = new())
             {
