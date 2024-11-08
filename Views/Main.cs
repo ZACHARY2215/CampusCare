@@ -172,6 +172,9 @@ namespace CampusCare.Views
 
             switch (selectedOption)
             {
+                case "<default>":
+                    LoadPatientData();
+                    break;
                 case "First Name (A-Z)":
                     patientMV.Patients = patientMV.Patients.OrderBy(p => p.first_name).ToList();
                     break;
@@ -255,6 +258,36 @@ namespace CampusCare.Views
             }
             LoadDoctorData();
         }
+        private void UpdateTodayRecordsLabel()
+        {
+            int todayRecordCount = patientMV.CountRecordsAddedToday();
+            labelTodayRecords.Text = $"Records added today \n\t\t{todayRecordCount}";
+        }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            UpdateTodayRecordsLabel();
+            UpdateMonthlyRecordsLabel();
+        }
 
+
+        private void labelTodayRecords_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void UpdateMonthlyRecordsLabel()
+        {
+            int monthlyRecordCount = patientMV.CountRecordsAddedThisMonth();
+            labelMonthlyRecords.Text = $"Records added this month: {monthlyRecordCount}";
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelMonthlyRecords_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -33,11 +33,11 @@
             toolStrip1 = new ToolStrip();
             toolStripLabel1 = new ToolStripLabel();
             toolStripButton1 = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
             tp_doctors = new TabPage();
             doctorRemoveButton = new Button();
             doctorEditButton = new Button();
             doctorAddButton = new Button();
-            dataGridViewDoctor = new DataGridView();
             dataGridViewDoctor = new DataGridView();
             tp_records = new TabPage();
             buttonRemovePatient = new Button();
@@ -51,11 +51,9 @@
             tp_dashboard = new TabPage();
             label5 = new Label();
             panel2 = new Panel();
-            label2 = new Label();
-            label4 = new Label();
+            labelMonthlyRecords = new Label();
             panel1 = new Panel();
-            label3 = new Label();
-            label1 = new Label();
+            labelTodayRecords = new Label();
             dataGridViewRecentPatients = new DataGridView();
             tabControl1 = new TabControl();
             toolStrip1.SuspendLayout();
@@ -73,7 +71,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripLabel1, toolStripButton1, toolStripButton2 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(914, 33);
@@ -101,9 +99,17 @@
             toolStripButton1.Size = new Size(54, 30);
             toolStripButton1.Text = "About";
             // 
+            // toolStripButton2
+            // 
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(29, 30);
+            toolStripButton2.Text = "toolStripButton2";
+            // 
             // tp_doctors
             // 
-            tp_doctors.Controls.Add(button6);
             tp_doctors.Controls.Add(doctorRemoveButton);
             tp_doctors.Controls.Add(doctorEditButton);
             tp_doctors.Controls.Add(doctorAddButton);
@@ -117,19 +123,7 @@
             tp_doctors.Text = "Doctors";
             tp_doctors.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            button6 = new Button();
-
-            button6.Location = new Point(296, 4);
-            button6.Margin = new Padding(3, 4, 3, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(90, 40);
-            button6.TabIndex = 9;
-            button6.Text = "Filter";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
+            // doctorRemoveButton
             // 
             doctorRemoveButton.Location = new Point(200, 4);
             doctorRemoveButton.Name = "doctorRemoveButton";
@@ -149,8 +143,8 @@
             doctorEditButton.Text = "Edit";
             doctorEditButton.UseVisualStyleBackColor = true;
             doctorEditButton.Click += doctorEditButton_Click;
-            //
-            //  doctorAddButton
+            // 
+            // doctorAddButton
             // 
             doctorAddButton.BackgroundImageLayout = ImageLayout.Zoom;
             doctorAddButton.Location = new Point(9, 4);
@@ -193,6 +187,7 @@
             // 
             // buttonRemovePatient
             // 
+            buttonRemovePatient.Font = new Font("Montserrat", 9F);
             buttonRemovePatient.Location = new Point(304, 12);
             buttonRemovePatient.Margin = new Padding(3, 4, 3, 4);
             buttonRemovePatient.Name = "buttonRemovePatient";
@@ -205,6 +200,7 @@
             // buttonEditPatient
             // 
             buttonEditPatient.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonEditPatient.Font = new Font("Montserrat", 9F);
             buttonEditPatient.Location = new Point(251, 48);
             buttonEditPatient.Margin = new Padding(3, 4, 3, 4);
             buttonEditPatient.Name = "buttonEditPatient";
@@ -217,6 +213,7 @@
             // buttonAddPatient
             // 
             buttonAddPatient.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonAddPatient.Font = new Font("Montserrat", 9F);
             buttonAddPatient.Location = new Point(162, 48);
             buttonAddPatient.Margin = new Padding(3, 4, 3, 4);
             buttonAddPatient.Name = "buttonAddPatient";
@@ -241,15 +238,17 @@
             // 
             // textBoxSearch
             // 
+            textBoxSearch.Font = new Font("Montserrat", 9F);
             textBoxSearch.Location = new Point(6, 14);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.PlaceholderText = "Search patients...";
-            textBoxSearch.Size = new Size(200, 27);
+            textBoxSearch.Size = new Size(200, 26);
             textBoxSearch.TabIndex = 5;
             textBoxSearch.TextChanged += textBoxSearch_TextChanged;
             // 
             // buttonSearch
             // 
+            buttonSearch.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             buttonSearch.Location = new Point(212, 12);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(86, 29);
@@ -261,10 +260,11 @@
             // comboBoxSortOptions
             // 
             comboBoxSortOptions.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxSortOptions.Items.AddRange(new object[] { "First Name (A-Z)", "First Name (Z-A)", "Last Name (A-Z)", "Last Name (Z-A)", "ID (Ascending)", "ID (Descending)", "Gender", "Grade/Department" });
+            comboBoxSortOptions.Font = new Font("Montserrat", 9F);
+            comboBoxSortOptions.Items.AddRange(new object[] { "<default>","First Name (A-Z)", "First Name (Z-A)", "Last Name (A-Z)", "Last Name (Z-A)", "School ID (Ascending)", "School ID (Descending)", "Gender", "Grade/Department" });
             comboBoxSortOptions.Location = new Point(6, 47);
             comboBoxSortOptions.Name = "comboBoxSortOptions";
-            comboBoxSortOptions.Size = new Size(150, 28);
+            comboBoxSortOptions.Size = new Size(150, 27);
             comboBoxSortOptions.TabIndex = 7;
             comboBoxSortOptions.SelectedIndexChanged += comboBoxSortOptions_SelectedIndexChanged;
             // 
@@ -293,75 +293,51 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(0, 128);
+            label5.Font = new Font("Montserrat", 18F, FontStyle.Bold);
+            label5.Location = new Point(11, 130);
             label5.Name = "label5";
-            label5.Size = new Size(318, 41);
+            label5.Size = new Size(348, 37);
             label5.TabIndex = 2;
             label5.Text = "Recent appointments";
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(label4);
+            panel2.Controls.Add(labelMonthlyRecords);
             panel2.Location = new Point(221, 0);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
             panel2.Size = new Size(195, 101);
             panel2.TabIndex = 2;
             // 
-            // label2
+            // labelMonthlyRecords
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(129, 43);
-            label2.Name = "label2";
-            label2.Size = new Size(65, 41);
-            label2.TabIndex = 1;
-            label2.Text = "2/2";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 15);
-            label4.Name = "label4";
-            label4.Size = new Size(144, 28);
-            label4.TabIndex = 0;
-            label4.Text = "Bed availability";
+            labelMonthlyRecords.Font = new Font("Montserrat Semi Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelMonthlyRecords.Location = new Point(-1, 2);
+            labelMonthlyRecords.Name = "labelMonthlyRecords";
+            labelMonthlyRecords.Size = new Size(188, 99);
+            labelMonthlyRecords.TabIndex = 3;
+            labelMonthlyRecords.Text = "Records added this month: 0";
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(labelTodayRecords);
             panel1.Location = new Point(11, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(195, 101);
             panel1.TabIndex = 1;
             // 
-            // label3
+            // labelTodayRecords
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(155, 43);
-            label3.Name = "label3";
-            label3.Size = new Size(35, 41);
-            label3.TabIndex = 1;
-            label3.Text = "5";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(3, 15);
-            label1.Name = "label1";
-            label1.Size = new Size(179, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Remaining patients";
-            label1.Click += label1_Click;
+            labelTodayRecords.Font = new Font("Montserrat Semi Bold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTodayRecords.Location = new Point(3, 3);
+            labelTodayRecords.Name = "labelTodayRecords";
+            labelTodayRecords.Size = new Size(187, 90);
+            labelTodayRecords.TabIndex = 3;
+            labelTodayRecords.Text = "Records added today: 0";
+            labelTodayRecords.Click += labelTodayRecords_Click;
             // 
             // dataGridViewRecentPatients
             // 
@@ -383,6 +359,7 @@
             tabControl1.Controls.Add(tp_records);
             tabControl1.Controls.Add(tp_doctors);
             tabControl1.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl1.Font = new Font("Montserrat Light", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tabControl1.ItemSize = new Size(50, 150);
             tabControl1.Location = new Point(0, 48);
             tabControl1.Margin = new Padding(3, 4, 3, 4);
@@ -404,6 +381,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Main";
             Text = "Main";
+            Load += Main_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             tp_doctors.ResumeLayout(false);
@@ -414,9 +392,7 @@
             tp_dashboard.ResumeLayout(false);
             tp_dashboard.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRecentPatients).EndInit();
             tabControl1.ResumeLayout(false);
             ResumeLayout(false);
@@ -428,7 +404,6 @@
         private ToolStripLabel toolStripLabel1;
         private ToolStripButton toolStripButton1;
         private TabPage tp_doctors;
-        private Button button6;
         private Button doctorRemoveButton;
         private Button doctorEditButton;
         private Button doctorAddButton;
@@ -441,20 +416,17 @@
         private TabPage tp_dashboard;
         private Label label5;
         private Panel panel2;
-        private Label label2;
-        private Label label4;
         private Panel panel1;
-        private Label label3;
-        private Label label1;
         private DataGridView dataGridViewRecentPatients;
         private TabControl tabControl1;
         private Button buttonViewPatient;
         private TextBox textBoxSearch;
         private Button buttonSearch;
         private ComboBox comboBoxSortOptions;
+        private ToolStripButton toolStripButton2;
         //private Button buttonSort;
-
-
+        private Label labelTodayRecords;
+        private Label labelMonthlyRecords;
 
     }
 }

@@ -150,5 +150,19 @@ namespace CampusCare.ModelViews
                 Patients.Remove(patient);
             }
         }
+        public int CountRecordsAddedToday()
+        {
+            DateTime today = DateTime.Today;
+            return Patients.Count(p => p.date_registered.Date == today);
+        }
+        public int CountRecordsAddedThisMonth()
+        {
+            DateTime firstDayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime firstDayOfNextMonth = firstDayOfMonth.AddMonths(1);
+
+            return Patients.Count(p => p.date_registered >= firstDayOfMonth && p.date_registered < firstDayOfNextMonth);
+        }
+
     }
 }
+

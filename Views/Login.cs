@@ -23,7 +23,8 @@ namespace CampusCare
                 main.ShowDialog();
                 this.Show();
                 errorLabel.Visible = false;
-            } else
+            }
+            else
             {
                 errorLabel.Visible = true;
             }
