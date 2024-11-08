@@ -85,6 +85,9 @@ namespace CampusCare.Views
                 {
                     patientMV.LoadPatients();
                     LoadPatientData();
+                    UpdateTodayRecordsLabel();
+                    UpdateMonthlyRecordsLabel();
+                    LoadRecentPatientData();
                 }
             }
         }
@@ -104,6 +107,7 @@ namespace CampusCare.Views
                         {
                             // Refresh the DataGridView
                             dataGridViewPatient.Refresh();
+                            
                         }
                     }
                 }
@@ -113,6 +117,10 @@ namespace CampusCare.Views
                 MessageBox.Show("Please select a patient to edit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             LoadPatientData();
+            UpdateTodayRecordsLabel();
+            UpdateMonthlyRecordsLabel();
+            LoadRecentPatientData();
+
         }
 
 
@@ -125,6 +133,7 @@ namespace CampusCare.Views
                 if (selectedPatient != null)
                 {
                     patientMV.DeletePatientById(selectedPatient.patient_id);
+
                 }
             }
             else
@@ -132,6 +141,10 @@ namespace CampusCare.Views
                 MessageBox.Show("Please select a patient to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             LoadPatientData();
+            UpdateTodayRecordsLabel();
+            UpdateMonthlyRecordsLabel();
+            LoadRecentPatientData();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -289,5 +302,6 @@ namespace CampusCare.Views
         {
 
         }
+
     }
 }
