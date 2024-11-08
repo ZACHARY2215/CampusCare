@@ -277,7 +277,7 @@ namespace CampusCare.Views
         private void UpdateMonthlyRecordsLabel()
         {
             int monthlyRecordCount = patientMV.CountRecordsAddedThisMonth();
-            labelMonthlyRecords.Text = $"Records added this month: {monthlyRecordCount}";
+            labelMonthlyRecords.Text = $"Records added this month \n\t\t {monthlyRecordCount}";
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
